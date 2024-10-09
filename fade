@@ -1,0 +1,24 @@
+import board
+from neopixel import NeoPixel
+import time
+import random
+np = NeoPixel(board.D2, 30, auto_write = False, brightness = 0.3)
+i = 0
+
+magenta = (255,0,255)
+
+mag = magenta[0] / 50
+magen = magenta[0]
+def fade_out():
+    for i in range(1, 51):
+        magenta = magen - i * mag
+        np.show()
+        time.sleep(0.02)
+
+def fade_in():
+    for i in range(1, 51):
+        magenta = magen + i * mag
+        np.show()
+        time.sleep(0.02)
+
+fade_in()
